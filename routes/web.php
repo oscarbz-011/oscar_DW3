@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\inicio;
+use App\Http\Controllers\AlumnoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,6 @@ use App\Http\Controllers\inicio;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('inicio',[inicio::class,'inicio']);
+#Route::get('inicio',[inicio::class,'inicio']);
+
+Route::resource('alumnos', AlumnoController::class);
