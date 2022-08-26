@@ -16,7 +16,12 @@ class Alumno extends Model
         'edad',
         'ci',
         'telefono',
-        'direccion'
+        'direccion',
+        'gmail',
+        'profesion',
+        'genero',
+        'fechanac'
+
 
     ];
 }
