@@ -18,14 +18,14 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->integer('edad');
-            $table->integer('ci');
+            $table->text('ci');
             $table->string('direccion');
-            $table->string('telefono');
+            $table->text('telefono');
             #$table->integer('curso_id');
             $table->string('gmail');
             $table->string('profesion');
             $table->string('genero');
-            $table->text('fechanac');
+            $table->date('fecha_de_nacimiento');
             $table->timestamps();
         });
     }

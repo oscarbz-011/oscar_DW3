@@ -3,6 +3,7 @@
 
 
 <div class="container">
+	@include('flash::message')
 	<h1>Lista de Alumnos</h1>
 	<a class="pull-right" href="{{route('alumnos.create')}} "><button type="button" class="btn btn-primary">Nuevo</button></a>
 	<div class="table-responsive-sm">
