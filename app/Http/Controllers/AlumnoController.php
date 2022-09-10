@@ -41,7 +41,7 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-
+        
         $rules=[
             'nombre' => 'required |string',
             'apellido' => 'required |alpha',
@@ -49,10 +49,11 @@ class AlumnoController extends Controller
             'ci' => 'required |numeric',
             'telefono' => 'required |max:13',
             'direccion' => 'required',
-            'gmail' => 'required |email|unique:alumnos.gmail',
+            'gmail' => 'required |email|unique:alumnos,gmail',
             'profesion' => 'required',
             'genero' => 'required',
-            'fecha_de_nacimiento' => 'required'
+            'fechanac' => 'required',
+            'curso_id' => 'required'
         ];
 
         $mensaje = [
@@ -60,7 +61,8 @@ class AlumnoController extends Controller
             'telefono.required' => 'El número de teléfono es requerido',
             'direccion.required' => 'La dirección es requerida',
             'profesion.required' => 'La profesión es requerida',
-            'fecha_de_nacimiento.required' => 'La fecha de nacimiento es requerida',
+            'fechanac.required' => 'La fecha de nacimiento es requerida',
+            'curso_id.required' => 'El curso es requerido',
         ];
         $this->validate($request, $rules, $mensaje);
 
@@ -69,7 +71,7 @@ class AlumnoController extends Controller
         Flash::success('Creado correctamente');
         return redirect (route('alumnos.index'));
     }
-
+    
     /**
      * Display the specified resource.
      *

@@ -11,6 +11,7 @@ class Alumno extends Model
 
     public $table='alumnos';
     public $fillabe = [
+        'curso_id',
         'nombre',
         'apellido',
         'edad',

@@ -1,8 +1,22 @@
 @include('app')
-
+@include('menu')
 
 <div class="container">
 	<!--div class="jumbotron jumbotron-fluid"-->
+
+	@if (count($errors)>0)
+    <br>
+    <div class="alert alert-danger" role="alert">
+        <u>
+            @foreach ($errors->all() as $error)
+                <li>
+                    {{ $error }}
+                </li>
+            @endforeach
+        </u>
+    </div>
+    @endif
+
 	<h1>Crear alumno</h1>
 	<form action="{{url('/alumnos')}}" method="post" enctype="multipart/from-data">
 	@csrf

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\inicio;
 use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\CursoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,4 @@ Route::get('/', function () {
 #Route::get('inicio',[inicio::class,'inicio']);
 
 Route::resource('alumnos', AlumnoController::class);
+Route::resource('cursos', CursoController::class);

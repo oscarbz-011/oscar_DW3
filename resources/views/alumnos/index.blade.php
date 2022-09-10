@@ -1,5 +1,6 @@
 
 @include('app')
+@include('menu')
 
 
 <div class="container">
