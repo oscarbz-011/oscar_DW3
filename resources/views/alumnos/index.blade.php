@@ -2,8 +2,9 @@
 @include('app')
 @include('menu')
 
+	
 
-<div class="container">
+<div class="container ">
 	@include('flash::message')
 	<h1>Lista de Alumnos</h1>
 	<a class="pull-right" href="{{route('alumnos.create')}} "><button type="button" class="btn btn-primary">Nuevo</button></a>
@@ -21,6 +22,7 @@
 					<th>Profesion</th>
 					<th>Genero</th>
 					<th>Fecha de nacimineto</th>				
+					<th>Curso</th>				
 				</tr>
 			</thead>
 			<tbody>
@@ -36,18 +38,32 @@
 					<td>{{$a->profesion}}</td>
 					<td>{{$a->genero}}</td>
 					<td>{{$a->fechanac}}</td>
-			 		<td>
-						<a href="{{url('/alumnos/'.$a->id.'/edit')}}">
-						<input type="button" class="btn btn-warning" value="Editar">
-						</a>
+					<td>{{$a->curso_id}}</td>
+
+					 <td>
+						<div class="btn-group">
+							<div class="me-2">
+								<a href="{{url('/alumnos/'.$a->id.'/edit')}}">
+									<input type="submit" class="btn btn-warning" value="Editar">
+								</a>
+							</div>
+
+							<div class="me-2">
+								<form method="POST" action="{{ url("alumnos/{$a->id}") }}">
+								@csrf
+								{{method_field('DELETE')}}
+								<input type="submit" class="btn btn-danger" onclick="return confirm('Estas seguro')" value="Borrar">
+							</form>
+							</div>
+
+							<div class="me-2">
+							<a href="{{route('alumnos.show', $a->id)}} ">
+								<input type="submit" class="btn btn-info" value="Ver">
+							</a>
+							</div>
+						</div>
 					</td>
-             		<td>
-                		<form method="POST" action="{{ url("alumnos/{$a->id}") }}">
-			    	  		@csrf
-			    	  		@method('DELETE')
-			    	  		<button type="submit" class="btn btn-danger">Eliminar</button>
-			    		</form>
-             		</td>
+
             	</tr>
 				@endforeach
 			</tbody>

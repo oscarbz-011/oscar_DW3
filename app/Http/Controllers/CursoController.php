@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Models\Curso;
 use Illuminate\Http\Request;
-
+use Flash;
 class CursoController extends Controller
 {
     /**
@@ -26,7 +26,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        return view('cursos.create');
     }
 
     /**
@@ -37,7 +37,26 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules=[
+            'nombre' => 'required |string',
+            'descripcion' => 'required',
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required',
+            'estado' => 'required'
+        ];
+
+        $mensaje = [
+            'required' => 'El :attribute es requerido',
+            'descripcion.required' => 'La descripcion es requerida',
+            'fecha_inicio.required' => 'La fecha de inicio es requerida',
+            'fecha_fin.required' => 'La fecha de finalizacion es requerida',
+        ];
+        $this->validate($request, $rules, $mensaje);
+
+        $cursos= request()->except('_token');
+        Curso::insert($cursos);
+        Flash::success('Creado correctamente');
+        return redirect (route('cursos.index'));
     }
 
     /**
@@ -46,9 +65,10 @@ class CursoController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function show(Curso $curso)
+    public function show($id)
     {
-        //
+        $cursos = Curso::findorFail($id);
+        return view('cursos.show',compact('cursos'));
     }
 
     /**
@@ -57,9 +77,10 @@ class CursoController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function edit(Curso $curso)
+    public function edit($id)
     {
-        //
+        $cursos = Curso::findorFail($id);
+        return view('cursos.edit',compact('cursos'));
     }
 
     /**
@@ -69,9 +90,12 @@ class CursoController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, $id)
     {
-        //
+        $cursos=request()->except(['_token','_method']);
+        Curso::where('id','=',$id)->update($cursos);
+        Flash::success('Actualizado correctamente');
+        return redirect ('cursos');
     }
 
     /**
@@ -80,8 +104,10 @@ class CursoController extends Controller
      * @param  \App\Models\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Curso $curso)
+    public function destroy($id)
     {
-        //
+        Curso::destroy($id);
+        Flash::error('Eliminado correctamente');
+        return redirect('cursos');
     }
 }

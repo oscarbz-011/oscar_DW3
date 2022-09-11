@@ -66,6 +66,14 @@
 			<input type="date" class="form-control" name="fechanac" id="fechanac">
 		</div>
 	</div>
+	<div class="form-group col-md-6">
+		<label for="curso_id">Cursos</label>
+		<select class="form-select" aria-label="Default select example" name="curso_id">
+			@foreach($lista_cursos as $item)
+			<option value="{{ $item->id }}">{{ $item->nombre }}</option>
+			@endforeach
+		</select>
+	</div>
 	<br>
     <input type="submit" class="btn btn-primary" value="Guardar">
     <a class="pull-right" href="{{route('alumnos.index')}} "><button type="button" class="btn btn-danger">Cancelar</button></a>

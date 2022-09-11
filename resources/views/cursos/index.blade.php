@@ -1,11 +1,12 @@
 @include('app')
 @include('menu')
-
+	
 
 <div class="container">
+	<br>
 	@include('flash::message')
 	<h1>Lista de Cursos</h1>
-	<a class="pull-right" href=" "><button type="button" class="btn btn-primary">Nuevo</button></a>
+	<a class="pull-right" href=" {{route('cursos.create')}} "><button type="button" class="btn btn-primary">Nuevo</button></a>
 	<div class="table-responsive-sm">
 		<table class="table table-border" id="tabla">
 			<thead>
@@ -13,30 +14,31 @@
 					<th>Nombre</th>
 					<th>Descripcion</th>
 					<th>Fecha de inicio</th>
-					<th>Fecha de fin</th>
+					<th>Fecha de finalizacion</th>
 					<th>Estado</th>
+					<th>Opciones</th>
 								
 				</tr>
 			</thead>
 			<tbody>
-				@foreach ($cursos as $a)
+				@foreach ($cursos as $c)
 				<tr>
-					<td>{{$a->nombre}}</td>
-					<td>{{$a->descripcion}}</td>
-					<td>{{$a->fecha_inicio}}</td>
-					<td>{{$a->fecha_fin}}</td>
-					<td>{{$a->estado}}</td>
+					<td>{{$c->nombre}}</td>
+					<td>{{$c->descripcion}}</td>
+					<td>{{$c->fecha_inicio}}</td>
+					<td>{{$c->fecha_fin}}</td>
+					<td>{{$c->estado}}</td>
 					
                     <td>
                             <div class="btn-group">
                                 <div class="me-2">
-                                    <a href="{{--{{url('/cursos/'.$c->id.'/edit')}}--}}">
+                                    <a href="{{url('/cursos/'.$c->id.'/edit')}}">
                                         <input type="submit" class="btn btn-warning" value="Editar">
                                     </a>
                                 </div>
 
                                 <div class="me-2">
-                                <form action="{{--{{url('/cursos/'.$c->id)}}--}}" method="POST">
+                                <form action="{{url('/cursos/'.$c->id)}}" method="POST">
                                     @csrf
                                     {{method_field('DELETE')}}
                                     <input type="submit" class="btn btn-danger" onclick="return confirm('Estas seguro')" value="Borrar">
@@ -44,7 +46,7 @@
                                 </div>
 
                                 <div class="me-2">
-                                <a href="{{--{{route('cusos.show', $c->id)}} --}}">
+                                <a href="{{route('cursos.show', $c->id)}} ">
                                     <input type="submit" class="btn btn-info" value="Ver">
                                 </a>
                                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use App\Models\Alumno;
+use App\Models\Curso;
 use Illuminate\Http\Request;
 use Flash;
 
@@ -15,6 +16,7 @@ class AlumnoController extends Controller
      */
     public function index(Request $request)
     {
+       
         $nombre = $request->get('buscarpor');
         $alumnos = Alumno::where('nombre','like',"%nombre%");
         $alumnos = Alumno::paginate(4);
@@ -30,7 +32,10 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        return view('alumnos.create');
+        $curso_list = Curso::all();
+        $lista = array("lista_cursos" => $curso_list);
+        //return view('alumnos.create');
+        return response()->view("alumnos.create",$lista,200);
     }
 
     /**
