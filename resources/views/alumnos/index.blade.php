@@ -1,11 +1,11 @@
 
 @include('app')
 @include('menu')
-
 	
-
-<div class="container ">
+<div class="container">
+	<br>
 	@include('flash::message')
+	<br>
 	<h1>Lista de Alumnos</h1>
 	<a class="pull-right" href="{{route('alumnos.create')}} "><button type="button" class="btn btn-primary">Nuevo</button></a>
 	<div class="table-responsive-sm">
@@ -22,7 +22,8 @@
 					<th>Profesion</th>
 					<th>Genero</th>
 					<th>Fecha de nacimineto</th>				
-					<th>Curso</th>				
+					<th>Curso</th>
+					<th>Opciones</th>				
 				</tr>
 			</thead>
 			<tbody>
@@ -38,7 +39,7 @@
 					<td>{{$a->profesion}}</td>
 					<td>{{$a->genero}}</td>
 					<td>{{$a->fechanac}}</td>
-					<td>{{$a->curso_id}}</td>
+					<td>{{$a->curso->nombre}}</td>
 
 					 <td>
 						<div class="btn-group">

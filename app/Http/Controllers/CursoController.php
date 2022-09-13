@@ -5,6 +5,8 @@ use DB;
 use App\Models\Curso;
 use Illuminate\Http\Request;
 use Flash;
+
+
 class CursoController extends Controller
 {
     /**
@@ -16,6 +18,7 @@ class CursoController extends Controller
     {
         $cursos = Curso::all();
         return view('cursos.index',compact('cursos'));
+        $cursos = Curso::paginate(4);
         
     }
 

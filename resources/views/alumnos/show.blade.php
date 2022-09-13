@@ -3,6 +3,9 @@
 <br>
 <div class="container">
     <h1>Detalle del Alumno</h1>
+    <label for="nombre">Nombre</label>
+    <input type="text" class="form-control" name="nombre" id="nombre" value="{{$alumnos->nombre}}" disabled="true">
+    <br>
     <label for="apellido">Apellido</label>
     <input type="text" class="form-control" name="apellido" id="apellido" value="{{$alumnos->apellido}}" disabled="true">
     <br>
@@ -32,11 +35,11 @@
     </select>
     <br>
 
-    <label for="fecha_de_nacimiento">Fecha de Nacimiento</label>
-    <input type="date" class="form-control" name="fecha_de_nacimiento" id="fecha_de_nacimiento" value="{{$alumnos->fecha_de_nacimiento}}" disabled="true">
+    <label for="fechanac">Fecha de Nacimiento</label>
+    <input type="date" class="form-control" name="fechanac" id="fechanac" value="{{$alumnos->fechanac}}" disabled="true">
     <br>
     <label for="curso_id">Curso</label>
-    <input type="text" class="form-control" name="curso_id" id="curso_id" value="{{$alumnos->curso_id}}" disabled="true">
+    <input type="text" class="form-control" name="curso_id" id="curso_id" value="{{$alumnos->curso->nombre}}" disabled="true">
     <br>
     <div class="d-flex justify-content-between">
         <a href="{{route('alumnos.index')}}">

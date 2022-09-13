@@ -25,4 +25,8 @@ class Alumno extends Model
 
 
     ];
+
+    public function curso(){
+        return $this->hasOne(Curso::class, 'id','curso_id');   
+    } 
 }

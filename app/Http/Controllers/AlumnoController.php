@@ -35,7 +35,7 @@ class AlumnoController extends Controller
         $curso_list = Curso::all();
         $lista = array("lista_cursos" => $curso_list);
         //return view('alumnos.create');
-        return response()->view("alumnos.create",$lista,200);
+        return response()->view("alumnos.create",$lista);
     }
 
     /**
@@ -97,8 +97,11 @@ class AlumnoController extends Controller
      */
     public function edit($id)
     {
+        $curso_list = Curso::all();
+        $lista = array("lista_cursos" => $curso_list);
+
         $alumnos=Alumno::findorFail($id);
-        return view('alumnos.edit',compact('alumnos'));
+        return view('alumnos.edit',$lista,compact('alumnos'));
     }
 
     /**

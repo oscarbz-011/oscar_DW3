@@ -1,12 +1,13 @@
+
 @include('app')
-@include('menu')
-	
+@include('menu')	
 
 <div class="container">
 	<br>
 	@include('flash::message')
+	<br>
 	<h1>Lista de Cursos</h1>
-	<a class="pull-right" href=" {{route('cursos.create')}} "><button type="button" class="btn btn-primary">Nuevo</button></a>
+	<a class="pull-right" href="{{route('cursos.create')}} "><button type="button" class="btn btn-primary">Nuevo</button></a>
 	<div class="table-responsive-sm">
 		<table class="table table-border" id="tabla">
 			<thead>
@@ -16,8 +17,7 @@
 					<th>Fecha de inicio</th>
 					<th>Fecha de finalizacion</th>
 					<th>Estado</th>
-					<th>Opciones</th>
-								
+					<th>Opciones</th>								
 				</tr>
 			</thead>
 			<tbody>
@@ -56,7 +56,9 @@
 				@endforeach
 			</tbody>
 		</table>
-    	
+    	<div class="d-flex justify-content-end">
+			{{-- $cursos->links() --}}
+			</div>
    </div> 
   
 </div>
