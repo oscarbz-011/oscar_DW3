@@ -12,11 +12,11 @@
         }
       }
 	</style>
-	
+
 </head>
 <!--body class=" text-center text-bg-dark"-->
 <body class="text-center">
-	
+
 	<div class="cover-container  flex-column">
 		<header>
 			@include('app')
@@ -26,16 +26,16 @@
 	<main class="">
 		<!--<div class="container">-->
 			<div class="col-auto p-5 text-center">
-				
+
 				<h1>Diseño Web III.</h1>
 				<p class="lead">Bienvenido.</p>
 				<p class="lead">
-					<input type="button" class="btn btn-lg btn-secondary fw-bold border-black bg-gray" onclick="return alert('Hecho por Oscar Báez')" value="Info">
+					<input type="button" class="btn btn-lg btn-secondary fw-bold border-black bg-gray" value="Info">
 				</p>
 			</div>
-			
+
 		</div>
-		
+
 	</main>
 </body>
 </html>

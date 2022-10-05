@@ -1,6 +1,6 @@
 
 @include('app')
-@include('menu')	
+@include('menu')
 
 <div class="container">
 	<br>
@@ -17,7 +17,7 @@
 					<th>Fecha de inicio</th>
 					<th>Fecha de finalizacion</th>
 					<th>Estado</th>
-					<th>Opciones</th>								
+					<th>Opciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -27,8 +27,19 @@
 					<td>{{$c->descripcion}}</td>
 					<td>{{$c->fecha_inicio}}</td>
 					<td>{{$c->fecha_fin}}</td>
-					<td>{{$c->estado}}</td>
-					
+					<td>
+                    @switch(true)
+                        @case($c->estado == 'Proximamente')
+                                <span class="badge text-bg-primary">{{$c->estado}}</span>
+                            @break</td>
+                        @case($c->estado == 'En curso')
+                            <span class="badge text-bg-success">{{$c->estado}}</span>
+                            @break</td>
+                        @case($c->estado == 'Terminado')
+                            <span class="badge text-bg-danger">{{$c->estado}}</span>
+                            @break</td>
+                        @default
+                    @endswitch
                     <td>
                             <div class="btn-group">
                                 <div class="me-2">
@@ -59,6 +70,6 @@
     	<div class="d-flex justify-content-end">
 			{{-- $cursos->links() --}}
 			</div>
-   </div> 
-  
+   </div>
+
 </div>

@@ -31,7 +31,7 @@
 			<input type="text" class="form-control" name="descripcion" id="descripcion">
 		</div>
 	</div>
-	<div class="form-group row">	
+	<div class="form-group row">
         <div class="form-group col-md-6">
             <label for="fecha_inicio">Fecha de inicio</label>
             <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio">
@@ -41,15 +41,20 @@
             <input type="date" class="form-control" name="fecha_fin" id="fecha_fin">
         </div>
 	</div>
-    <div class="form-group col-md-12">
+    <div class="form-group col-md-6">
         <label for="direccion">Estado</label>
-	    <input type="text" class="form-control" name="estado" id="estado">
+        <select class="form-select" aria-label="Default select example" name="estado" id="estado">
+            <option selected>Seleccione una opcion</option>
+            <option value="Proximamente">Proximamente</option>
+            <option value="En curso">En curso</option>
+            <option value="Terminado">Terminado</option>
+        </select>
     </div>
 	<br>
     <input type="submit" class="btn btn-primary" value="Guardar">
     <a class="pull-right" href="{{route('cursos.index')}} "><button type="button" class="btn btn-danger">Cancelar</button></a>
-		
+
 	</form>
-	
+
 </div>
 </div>

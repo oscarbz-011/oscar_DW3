@@ -1,7 +1,7 @@
 
 @include('app')
 @include('menu')
-	
+
 <div class="container">
 	<br>
 	@include('flash::message')
@@ -21,9 +21,9 @@
 					<th>Gmail</th>
 					<th>Profesion</th>
 					<th>Genero</th>
-					<th>Fecha de nacimineto</th>				
+					<th>Fecha de nacimineto</th>
 					<th>Curso</th>
-					<th>Opciones</th>				
+					<th>Opciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -72,6 +72,6 @@
     	<div class="d-flex justify-content-end">
     	{{ $alumnos->links() }}
     	</div>
-   </div> 
-  
+   </div>
+
 </div>

@@ -29,14 +29,18 @@
 		</div>
 	</div>
     <div class="form-group col-md-12">
-        <label for="estado">Estado</label>
-		<input type="text" class="form-control" name="estado" id="estado" value="{{$cursos->estado}}">
-		</div>
+        <label for="direccion">Estado</label>
+        <select class="form-select" aria-label="Default select example" name="estado" id="estado">
+            <option selected>Seleccione una opcion</option>
+            <option value="Proximamente" {{$cursos->estado =='Proximamente'? 'selected' : ''}}>Proximamente</option>
+            <option value="En curso" {{$cursos->estado =='En curso'? 'selected' : ''}}>En curso</option>
+            <option value="Terminado" {{$cursos->estado =='Terminado'? 'selected' : ''}}>Terminado</option>
+        </select>
 
 	<br>
     <input type="submit" class="btn btn-primary" value="Guardar">
     <a class="pull-right" href="{{route('cursos.index')}} "><button type="button" class="btn btn-danger">Cancelar</button></a>
-		
+
 	</form>
 </div>
 </div>

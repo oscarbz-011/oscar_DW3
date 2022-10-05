@@ -1,3 +1,5 @@
+
+@include('app')
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{url('/')}}">DW3</a>
